@@ -1,0 +1,12 @@
+ @startuml Ajo
+    top to bottom direction
+
+    actor Interesado as I
+    actor Admin as A
+    node "Metal K Web Center" as MK
+    node WhatsApp as W
+
+    I <-down-> MK
+    A <-left-> MK
+    W <-right-> MK
+ @enduml
