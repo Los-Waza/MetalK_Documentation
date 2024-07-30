@@ -1,0 +1,51 @@
+@startuml Cotizacion
+    |c| Clientes
+    |j| Jefe
+    |a| Administradores
+    |p| Proveedores
+    |t| Trabajadores
+
+    |c|
+    start
+    :Contactar a\nla empresa;
+    |j| 
+    :Recibir solicitud; <<load>>
+    if (Tiene planos?) is (si) then
+        |c|
+        :Enviar planos;
+        if (Quiere visita?) is (si) then
+            |c|
+            :Programa rvisita;
+        else (no)
+        endif
+    else (no)
+        |j|
+        :Programar visita;
+        |c|
+    endif
+    :Seleccionar preferencias;
+    |j|
+    :Despiezar trabajo;
+    |a|
+    :Cotizar material;
+    |p|
+    :Enviar valor de material;
+    
+    if (Se requiere personal?) is (si) then
+        :Seleccion de personal;
+        |t|
+        :Aceptar contrato;
+    else (no)
+    endif
+    |a|
+    :Definir costos;
+    :Crear cotizacion;
+
+    |c|    
+    if (Acepta cotizacion?) is (si) then
+        :Realizar trabajo;<<procedure>>
+    else (no)
+    endif
+    end
+
+@enduml
