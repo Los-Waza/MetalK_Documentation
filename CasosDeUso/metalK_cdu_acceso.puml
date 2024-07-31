@@ -1,0 +1,15 @@
+@startuml MetalK_UseCases_Access
+    top to bottom direction
+    skinparam linetype ortho
+    
+ 
+    actor Admnistrador as a
+    
+    rectangle Acceso{
+        usecase "RF001-Iniciar sesión" as RF001
+        usecase "RF002-Recuperar clave" as RF002
+    }
+
+    a -right-> RF001
+    RF001 .right.> RF002:<extends>    
+@enduml
