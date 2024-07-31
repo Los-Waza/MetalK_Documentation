@@ -1,0 +1,27 @@
+@startuml MetalK_UseCase_Catogories
+    left to right direction
+
+    actor Interesado as i
+
+    rectangle Personalizacion{
+        usecase "RF032-Solicitar servicio" as RF032
+        usecase "RF037-Elegir opciones de personalizacion" as RF037
+        usecase "RF033-Seleccionar categoria de producto a solicitar" as RF033
+        usecase "RF034-Visualizar opciones de personalizacion" as RF034
+        usecase "RF035-Visualizar portafolio reducido" as RF035
+        usecase "RF036-Aleatorizar portafolio reducido" as RF036
+    }
+
+    i --> RF033
+    i --> RF034
+    i --> RF035
+    i --> RF037
+
+    RF035 .right.> RF033:<include> 
+    RF035 ..> RF036:<extends>
+    RF035 ..> RF032:<include> 
+    RF034 ..> RF032:<include> 
+    RF037 ..> RF032:<include> 
+    RF037 ..> RF036:<extends>
+    RF034 ..> RF033:<include>
+@enduml

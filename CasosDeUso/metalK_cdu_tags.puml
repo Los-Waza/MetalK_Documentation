@@ -1,0 +1,31 @@
+@startuml MetalK_UseCase_Tags
+    left to right direction
+
+
+    actor Admnistrador as a
+
+    rectangle Tags{
+        usecase "RF001-Iniciar sesión" as RF001
+        usecase "RF026-Agrupar tags" as RF026
+        usecase "RF024-Agregar tags" as RF024
+        usecase "RF027-Asignar icono a grupo de tags" as RF027
+        usecase "RF029-Visualizar tags" as RF029
+        usecase "RF030-Editar tags" as RF030
+        usecase "RF031-Eliminar tags" as RF031
+    }
+
+    a -down-> RF024
+    a -down-> RF026
+    a -down-> RF029
+    a -down-> RF030
+    a -down-> RF031
+
+    RF026 .down.> RF001: <include>
+    RF024 .down.> RF001: <include>
+    RF029 .down.> RF001: <include>
+    RF030 .down.> RF001: <include>
+    RF031 .down.> RF001: <include>
+
+    RF026 <.down. RF027:<include> 
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml MetalK_UseCase_Catogories
+    left to right direction
+
+    actor Interesado as i
+
+    rectangle Solicitud{
+        usecase "RF032-Solicitar servicio" as RF032
+        usecase "RF038-Proveer informacion para servicios" as RF038
+        usecase "RF039-Anexar planos" as RF039
+        usecase "RF040-Solicitar visita tecnica" as RF040
+        usecase "RF041-Enviar mensaje de solicitud" as RF041
+        usecase "RF042-Enviar mensaje de notificaion de solicitud" as RF042
+    }
+
+    i --> RF032
+    i --> RF038
+    i --> RF039
+    i --> RF040
+    RF038 .left.> RF032:<include>
+    RF040 ..> RF041:<include>
+    RF040 ..> RF042:<include>
+@enduml

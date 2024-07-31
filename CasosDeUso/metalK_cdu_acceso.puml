@@ -11,5 +11,5 @@
     }
 
     a -right-> RF001
-    RF001 .right.> RF002:<extends>    
+    RF001 <.right. RF002:<extends>    
 @enduml

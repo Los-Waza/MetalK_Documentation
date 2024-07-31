@@ -1,10 +1,10 @@
 @startuml MetalK_UseCases_Products
     left to right direction
-    skinparam linetype orto
 
     actor Admnistrador as a
 
     rectangle Acceso{
+        usecase "RF001-Iniciar sesión" as RF001
         usecase "RF003-Registrar prorducto" as RF003
         usecase "RF004-Subir imágenes del producto" as RF004
         usecase "RF005-Relacionar tags  al producto" as RF005
@@ -13,17 +13,20 @@
         usecase "RF008-Eliminar producto" as RF008
         usecase "RF014-Visualizar productos" as RF014
         usecase "RF015-Filtrar productos por categorias" as RF015
-
     }
 
     a -down-> RF003
     RF003 .down.> RF004:<include>
-    RF003 .down.> RF005:<extends>
-    RF003 .down.> RF006:<!include>
+    RF003 <.down. RF005:<extends>
+    RF003 .down.> RF006:<include>
     a -down-> RF007
     a -down-> RF008
     a -down-> RF014
-    RF014 .down.> RF015
+    RF014 <.down. RF015:<extends>
+    RF003 .down.> RF001:<include>
+    RF007 .down.> RF001:<include>
+    RF008 .down.> RF001:<include>
+    RF014 .down.> RF001:<include>
 
 
 

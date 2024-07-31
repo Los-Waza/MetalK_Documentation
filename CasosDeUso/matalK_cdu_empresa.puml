@@ -1,0 +1,26 @@
+@startuml MetalK_UseCase_Enterprise
+    left to right direction
+
+    actor Administrador as a
+    actor Interesado as i
+
+    rectangle Empresa{
+        usecase "RF001-Iniciar sesión" as RF001
+        usecase "RF009-Visualizar informacion de la empresa" as RF009
+        usecase "RF010-Editar informacion de la emrpesa de la empresa" as RF010
+        usecase "RF011-Visualizar imagenes empresariales" as RF011
+        usecase "RF012-Agregar imagenes empresarial" as RF012
+        usecase "RF013-Eliminar imagenes empresariales" as RF013
+    }
+
+    a -down-> RF009
+    i -down-> RF009
+    a -down-> RF010
+    a -down-> RF012
+    a -down-> RF013
+    a -down-> RF011
+
+    RF010 .down.> RF001:<include>
+    RF012 .down.> RF001:<include>
+    RF013 .down.> RF001:<include>
+@enduml
