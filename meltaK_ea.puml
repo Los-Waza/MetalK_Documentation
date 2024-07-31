@@ -1,5 +1,6 @@
- @startuml Ajo
+ @startuml MetalK_ExternalActors
     top to bottom direction
+    skinparam linetype ortho
 
     actor Interesado as I
     actor Admin as A
