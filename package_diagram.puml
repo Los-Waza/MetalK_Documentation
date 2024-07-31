@@ -1,0 +1,36 @@
+@startuml
+
+top to bottom direction
+
+package "Portafolio"{
+    [Productos]
+    [Categorias]
+}
+
+[Solicitud]
+[WhatsApp]
+[Empresa]
+[Acceso]
+[Acceso a Datos]
+database "MySQL"
+
+[Solicitud] .down.> [Portafolio]
+Mensaje -down- [WhatsApp] 
+[Solicitud] -right-> Mensaje
+
+[Empresa] ..> [Acceso]
+Detalles_Producto -- [Empresa]
+[Productos] --> Detalles_Producto
+
+[Acceso] --> Consultar_data
+Consultar_data -- [MySQL]
+
+[Portafolio] -- Acceso_Data
+[Acceso a Datos] -right-> Acceso_Data
+[MySQL] --> [Acceso a Datos]
+
+package "Portafolio"{ 
+[Productos] --> Filtrar
+[Categorias] -- Filtrar
+}
+@enduml
