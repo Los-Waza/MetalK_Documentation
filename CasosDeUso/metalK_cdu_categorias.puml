@@ -5,13 +5,13 @@
 
     rectangle Categorias{
         usecase "RF001-Iniciar sesión" as RF001
-        usecase "RF020-Agregar categorias principales" as RF020
-        usecase "RF021-Editar categorias principales" as RF021
-        usecase "RF022-Eliminar categorias principales" as RF022
-        usecase "RF023-Visualizar categorias principales" as RF023
+        usecase "RF020-Agregar categorías principales" as RF020
+        usecase "RF021-Editar categorías principales" as RF021
+        usecase "RF022-Eliminar categorías principales" as RF022
+        usecase "RF023-Visualizar categorías principales" as RF023
         usecase "RF026-Agrupar tags" as RF026
-        usecase "RF028-Asignar icono a categoria principal" as RF028
-        usecase "RF025-Asiganar tags a categoria principal" as RF025
+        usecase "RF028-Asignar icono a categoría principal" as RF028
+        usecase "RF025-Asiganar tags a categoría principal" as RF025
     }
 
     a -down-> RF020
