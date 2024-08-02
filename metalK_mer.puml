@@ -5,7 +5,16 @@
     entity Empresa{}
     entity Producto{}
     entity Cliente{}
+    entity Solicitud{}
+    entity Personalizacion{}
+    entity Opciones{}
 
+    Empresa ||--|{ Producto
+    Solicitud }|--|{ Empresa
+    Cliente }|--|{ Solicitud
+    Producto }|--|| Personalizacion
+    Personalizacion }|-up-|{ Opciones
+    Solicitud ||-left-|| Producto
 
     
 @enduml
