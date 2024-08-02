@@ -5,14 +5,14 @@
 
     rectangle Acceso{
         usecase "RF001-Iniciar sesión" as RF001
-        usecase "RF003-Registrar prorducto" as RF003
+        usecase "RF003-Registrar producto" as RF003
         usecase "RF004-Subir imágenes del producto" as RF004
         usecase "RF005-Relacionar tags  al producto" as RF005
-        usecase "RF006-Relacionar categoria principal al producto" as RF006
-        usecase "RF007-Editar informacion producto" as RF007
+        usecase "RF006-Relacionar categoría principal al producto" as RF006
+        usecase "RF007-Editar información producto" as RF007
         usecase "RF008-Eliminar producto" as RF008
         usecase "RF014-Visualizar productos" as RF014
-        usecase "RF015-Filtrar productos por categorias" as RF015
+        usecase "RF015-Filtrar productos por categorías" as RF015
     }
 
     a -down-> RF003

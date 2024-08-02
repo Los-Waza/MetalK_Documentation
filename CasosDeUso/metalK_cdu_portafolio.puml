@@ -8,12 +8,12 @@
     rectangle Portafolio{
         usecase "RF001-Iniciar sesión" as RF001
         usecase "RF014-Visualizar productos" as RF014
-        usecase "RF015-Filtrar productos por categoria" as RF015a
-        usecase "RF015-Filtrar productos por categoria" as RF015i
+        usecase "RF015-Filtrar productos por categoría" as RF015a
+        usecase "RF015-Filtrar productos por categoría" as RF015i
         usecase "RF016-Filtrar productos por tags" as RF016
         usecase "RF017-Organizar aleatoriamente los productos" as RF017
-        usecase "RF018-Organizar cronologicamente los productos" as RF018
-        usecase "RF019-Visualizar principales \n caracteristica del producto" as RF019
+        usecase "RF018-Organizar cronológicamente los productos" as RF018
+        usecase "RF019-Visualizar principales \n características del producto" as RF019
     }   
 
     a -down-> RF018
