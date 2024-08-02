@@ -1,0 +1,73 @@
+@startuml
+    skinparam nodesep 4
+    skinparam linestyle orto
+
+    <style>
+    database {
+        
+    }
+    package{
+
+    }
+    </style>
+    database BaseDeDatos as bd{          
+    }
+    package Solicitud as sol{}
+    package Cliente as cli{}
+    package Whatsapp as wasa{}
+    package VisitaTecnica as vt{}
+    package Personalizacion as per{
+        package Cateogarias as cat{}
+        package GrupoTags as gt{}
+        package Tags as tag{}
+    }
+    package Plano as pla{}
+    package Productos as pro{}
+    package Portafolio as por{}
+    package Jefes as jef{}
+    package Cotizacion as cot{}
+    package Proveedor as prv{}
+    package Trabajadores as tra{}
+    package Almacen as alm{}
+    package CuentaDeCobra as cdc{}
+    package Obra as obr{}
+    package Contabilidad as con{}
+    package AccesoDatos as ad{}
+    package Cronograma as cro{}
+    package Entrega as ent{}
+
+    cli -(0- sol
+    gt -(0- tag
+    cat -(0- gt
+    sol -(0- wasa
+    sol -(0- per
+    per -0)- pro
+    pla -0)- sol
+    pla -0)- obr
+    por -(0- pro
+    por -(0- per
+    sol -(0- vt
+    vt -(0- jef
+    obr -(0- tra
+    sol -(0- obr
+    jef -(0- obr
+    obr -(0- alm
+    cot -(0- pla
+    jef -(0- cot
+    cot -(0- prv
+    cdc -(0- cot
+    con -(0- cot
+    cot -(0- ad
+    jef -(0- ad 
+    alm -(0- prv
+    bd -0)- ad
+    pla -0)- vt
+    wasa -0)- obr
+    ent -0)- obr
+    ent -(0- cro
+    obr -(0- cro
+    vt -(0- cro
+    cro -(0- jef
+    cro -(0- tra
+        
+@enduml
