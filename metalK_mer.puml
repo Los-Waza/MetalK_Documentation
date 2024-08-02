@@ -1,0 +1,11 @@
+@startuml MetalK_MER
+    top to bottom direction
+    skinparam linestyle orto
+
+    entity Empresa{}
+    entity Producto{}
+    entity Cliente{}
+
+
+    
+@enduml
