@@ -12,11 +12,21 @@
     }
 
     entity pro as "Producto"{
-        direccion
         precio
-        plano
         tiempo
         categoria
+    }
+
+    entity sol as "Solicitud"{
+        fecha
+        aceptado
+        plano
+        direccion
+    }
+
+    entity cot as "Cotización"{
+        items
+        total
     }
     
     entity car as "Caracteristicas"{
@@ -30,7 +40,10 @@
     }
 
     emp ||-right-o{ pro
-    pro }|--|{ car
-    cli ||--|{ pro
+    pro }|-right-|{ car
+    cli ||-right-|{ sol
+    sol ||--|| pro
+    sol ||-right-|| cot
+
 
 @enduml
