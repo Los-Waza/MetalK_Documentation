@@ -5,11 +5,11 @@
 
     rectangle Solicitud{
         usecase "RF032-Solicitar servicio" as RF032
-        usecase "RF038-Proveer informacion para servicios" as RF038
+        usecase "RF038-Proveer información para servicios" as RF038
         usecase "RF039-Anexar planos" as RF039
-        usecase "RF040-Solicitar visita tecnica" as RF040
+        usecase "RF040-Solicitar visita técnica" as RF040
         usecase "RF041-Enviar mensaje de solicitud" as RF041
-        usecase "RF042-Enviar mensaje de notificaion de solicitud" as RF042
+        usecase "RF042-Enviar mensaje de notificación de solicitud" as RF042
     }
 
     i --> RF032

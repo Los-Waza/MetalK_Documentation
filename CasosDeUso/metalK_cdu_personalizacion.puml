@@ -5,9 +5,9 @@
 
     rectangle Personalizacion{
         usecase "RF032-Solicitar servicio" as RF032
-        usecase "RF037-Elegir opciones de personalizacion" as RF037
-        usecase "RF033-Seleccionar categoria de producto a solicitar" as RF033
-        usecase "RF034-Visualizar opciones de personalizacion" as RF034
+        usecase "RF037-Elegir opciones de personalización" as RF037
+        usecase "RF033-Seleccionar categoría de producto a solicitar" as RF033
+        usecase "RF034-Visualizar opciones de personalización" as RF034
         usecase "RF035-Visualizar portafolio reducido" as RF035
         usecase "RF036-Aleatorizar portafolio reducido" as RF036
     }

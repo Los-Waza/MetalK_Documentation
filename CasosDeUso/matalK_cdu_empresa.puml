@@ -6,11 +6,11 @@
 
     rectangle Empresa{
         usecase "RF001-Iniciar sesión" as RF001
-        usecase "RF009-Visualizar informacion de la empresa" as RF009
-        usecase "RF010-Editar informacion de la emrpesa de la empresa" as RF010
-        usecase "RF011-Visualizar imagenes empresariales" as RF011
-        usecase "RF012-Agregar imagenes empresarial" as RF012
-        usecase "RF013-Eliminar imagenes empresariales" as RF013
+        usecase "RF009-Visualizar información de la empresa" as RF009
+        usecase "RF010-Editar información de la empresa" as RF010
+        usecase "RF011-Visualizar imágenes empresariales" as RF011
+        usecase "RF012-Agregar imágenes empresariales" as RF012
+        usecase "RF013-Eliminar imágenes empresariales" as RF013
     }
 
     a -down-> RF009
