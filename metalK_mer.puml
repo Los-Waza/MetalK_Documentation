@@ -2,10 +2,35 @@
     top to bottom direction
     skinparam linestyle orto
 
-    entity Empresa{}
-    entity Producto{}
-    entity Cliente{}
+    entity emp as "Empresa"{
+        direccion
+        nombre
+        logo
+        slogan
+        telefono
+        redes
+    }
 
-
+    entity pro as "Producto"{
+        direccion
+        precio
+        plano
+        tiempo
+        categoria
+    }
     
+    entity car as "Caracteristicas"{
+        nombre
+        descripcion
+    }
+
+    entity cli as "Cliente"{
+        nombre
+        telefono
+    }
+
+    emp ||-right-o{ pro
+    pro }|--|{ car
+    cli ||--|{ pro
+
 @enduml
