@@ -1,0 +1,7 @@
+@startuml MetalK_DataModel
+    skinparam linestyle orto
+
+    entity cli as "Cliente"{
+
+    }
+@enduml

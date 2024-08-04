@@ -34,7 +34,7 @@
         descripcion
     }
 
-    entity cli as "Cliente"{
+    entity cli as "Interesado"{
         nombre
         telefono
     }
