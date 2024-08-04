@@ -14,14 +14,16 @@
     entity pro as "Producto"{
         precio
         tiempo
+        estado
         categoria
     }
 
     entity sol as "Solicitud"{
         fecha
-        aceptado
-        plano
+        estado
         direccion
+        plano
+        visitaTecnica
     }
 
     entity cot as "Cotización"{
@@ -32,6 +34,7 @@
     entity car as "Caracteristicas"{
         nombre
         descripcion
+        agrupacion
     }
 
     entity cli as "Interesado"{
@@ -39,7 +42,6 @@
         telefono
     }
 
-    emp ||-right-o{ pro
     pro }|-right-|{ car
     cli ||-right-|{ sol
     sol ||--|| pro
