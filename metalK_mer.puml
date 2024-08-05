@@ -42,10 +42,10 @@
         telefono
     }
 
-    pro }|-right-|{ car
-    cli ||-right-|{ sol
-    sol ||--|| pro
-    sol ||-right-|| cot
+    pro }|-right-|{ car : tiene
+    cli ||-right-|{ sol : realiza
+    sol ||--|| pro : pertenece
+    sol ||-right-|| cot: genera
 
 
 @enduml
