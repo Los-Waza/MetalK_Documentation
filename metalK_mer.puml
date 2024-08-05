@@ -37,15 +37,14 @@
         agrupacion
     }
 
-    entity cli as "Interesado"{
+    entity int as "Interesado"{
         nombre
         telefono
     }
 
     pro }|-right-|{ car : tiene
-    cli ||-right-|{ sol : realiza
+    int ||-down-|{ sol : realiza
     sol ||--|| pro : pertenece
     sol ||-right-|| cot: genera
-
-
+    emp ||-right-|{ sol: dirigida
 @enduml

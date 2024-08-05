@@ -1,0 +1,87 @@
+@startuml MetalK_DataModel
+    skinparam linestyle orto
+
+    entity soli as "Solicitude"{
+        # soli_id: int
+        soli_applicantName:varchar
+        soli_applicantCellphone:varchar
+        ~ sost_id:int
+        soli_applicationDate: date
+        soli_plane: file
+        soli_technicalVisit: boolean
+        soli_address: varchar
+    }
+
+    entity sost as "Solicitude_Status"{
+        # sost_id: int
+        sost_name: varchar
+    }
+
+    entity prod as "Product"{
+        # prod_id: int
+        ~ prst_id: int
+        ~ cate_id: int
+    }
+
+    
+    entity prst as "Product_Status"{
+        # prst_id: int
+        prst_name: varchar
+    }
+
+    
+    entity prta as "Product_Tags"{
+        # prta_id:int
+        ~ prod_id: int
+        ~ tag_id: int
+    }
+
+    entity cate as "Category" {   
+        # cate_id: int
+        cate_name: varchar
+        cate_description: text
+        cate_icon: file
+    }
+
+    
+    entity tagg as "TagGroups" {   
+        # tagg_id: int
+        tagg_title: varchar
+        tagg_description: text
+        tagg_icon: file
+    }
+
+    entity catg as "Category_TagGroup" {   
+        # catg_id: int
+        ~ cate_id: int
+        ~ tagg_id: int
+    }
+
+    entity tags as "Tags" {   
+        # tag_id:int
+        tag_name: varchar
+        tag_description: text
+        ~ tagg_id: int
+    }
+
+    entity ente as "Enterprice"{
+        # ente_id: int
+        ente_name: varchar
+        ente_slogan: varchar
+        ente_description: varchar
+        ente_logo: file
+        ente_address: date
+    }
+
+
+    prod ||-up-|| soli
+    prod }-down-|| cate
+    tags }|--|| tagg
+    cate }|-left-|| catg
+    catg ||--|{ tagg
+    prod }-left-|| prst
+    soli }-left-|| sost
+    prod ||-right-|{ prta
+    tags ||-up-|{ prta
+    
+@enduml

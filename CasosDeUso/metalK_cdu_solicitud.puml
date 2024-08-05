@@ -2,6 +2,7 @@
     left to right direction
 
     actor Interesado as i
+    actor Whatsapp as w
 
     rectangle Solicitud{
         usecase "RF032-Solicitar servicio" as RF032
@@ -12,11 +13,14 @@
         usecase "RF042-Enviar mensaje de notificación de solicitud" as RF042
     }
 
+    w --> RF041
+    w --> RF042
     i --> RF032
     i --> RF038
     i --> RF039
-    i --> RF040
+    i -left-> RF040
     RF038 .left.> RF032:<include>
-    RF040 ..> RF041:<include>
+    RF040 .left.> RF041:<include>
     RF040 ..> RF042:<include>
+
 @enduml

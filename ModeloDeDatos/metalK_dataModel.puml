@@ -1,0 +1,51 @@
+@startuml MetalK_DataModel
+    skinparam linestyle orto
+    entity sol as "Solicitud"{
+        nombreInteresado
+        telefonoInteresado
+        direccion
+        estado
+        plano
+        visitaTecnica
+    }
+
+    entity pro as "Producto"{
+        estado
+        precio
+        categoria
+    }
+    entity cat as "Categoria" {   
+        nombre
+        descripcion
+    }
+
+    entity gt as "GrupoTag" {   
+        nombre
+        descripcion
+    }
+
+    entity tag as "Tag" {   
+        nombre
+        descripcion
+    }
+
+    entity emp as "Empresa"{
+        direccion
+        nombre
+        logo
+        slogan
+        telefono
+    }
+
+
+    tag }|-left-{ pro
+    pro ||-left-|| sol
+    pro }-down-|| cat
+    tag }|-down-|| gt
+    cat }|-right-|{ gt
+    
+    note top of tag: Esta es la representacion de \n "Caracteristicas" en el sistema
+
+
+    
+@enduml
