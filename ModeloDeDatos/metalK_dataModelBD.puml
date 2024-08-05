@@ -7,7 +7,7 @@
         soli_applicantCellphone:varchar
         ~ sost_id:int
         soli_applicationDate: date
-        soli_plane: file
+        soli_plane: varchar
         soli_technicalVisit: boolean
         soli_address: varchar
     }
@@ -33,6 +33,7 @@
     entity prta as "Product_Tags"{
         # prta_id:int
         ~ prod_id: int
+        prod_image: varchar
         ~ tag_id: int
     }
 
@@ -40,7 +41,7 @@
         # cate_id: int
         cate_name: varchar
         cate_description: text
-        cate_icon: file
+        cate_icon: varchar
     }
 
     
@@ -48,7 +49,7 @@
         # tagg_id: int
         tagg_title: varchar
         tagg_description: text
-        tagg_icon: file
+        tagg_icon: varchar
     }
 
     entity catg as "Category_TagGroup" {   
@@ -75,13 +76,13 @@
 
 
     prod ||-up-|| soli
-    prod }-down-|| cate
-    tags }|--|| tagg
-    cate }|-left-|| catg
-    catg ||--|{ tagg
+    prod }--|| cate
+    tags }|-down-|| tagg
+    cate ||-right-|{ catg
+    catg }|-right-|| tagg
     prod }-left-|| prst
     soli }-left-|| sost
     prod ||-right-|{ prta
-    tags ||-up-|{ prta
+    tags ||-left-|{ prta
     
 @enduml
