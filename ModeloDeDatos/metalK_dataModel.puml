@@ -45,7 +45,7 @@
     cat }|-right-|{ gt
     
     note top of tag: Esta es la representacion de \n "Caracteristicas" en el sistema
-
+    note left of cat: La Categoria del Producto \ncondiciona los Tag que puede tener
 
     
 @enduml
