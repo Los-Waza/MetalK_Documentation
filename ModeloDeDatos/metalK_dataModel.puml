@@ -1,22 +1,26 @@
 @startuml MetalK_DataModel
     skinparam linestyle orto
     entity sol as "Solicitud"{
-        nombreInteresado
-        telefonoInteresado
-        direccion
+        dirección
         estado
         plano
-        visitaTecnica
+        visitaTécnica
     }
 
     entity pro as "Producto"{
         estado
         precio
-        categoria
+        categoría
     }
+
+    entity cli as "Clients"{
+        nombre
+        teléfono
+    }
+
     entity cat as "Categoria" {   
         nombre
-        descripcion
+        descripción
     }
 
     entity gt as "GrupoTag" {   
@@ -26,15 +30,15 @@
 
     entity tag as "Tag" {   
         nombre
-        descripcion
+        descripción
     }
 
     entity emp as "Empresa"{
-        direccion
+        dirección
         nombre
         logo
         slogan
-        telefono
+        teléfono
     }
 
 
@@ -43,9 +47,10 @@
     pro }-down-|| cat
     tag }|-down-|| gt
     cat }|-right-|{ gt
+    cli ||--|{ sol
     
-    note top of tag: Esta es la representacion de \n "Caracteristicas" en el sistema
-    note left of cat: La Categoria del Producto \ncondiciona los Tag que puede tener
+    note top of tag: Esta es la representación de \n "Características" en el sistema.
+    note left of cat: La Categoría condiciona los Tag\nque puede tener el Producto\npor medio del GrupoTag.
 
     
 @enduml

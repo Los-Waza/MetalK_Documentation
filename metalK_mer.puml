@@ -3,11 +3,11 @@
     skinparam linestyle orto
 
     entity emp as "Empresa"{
-        direccion
+        dirección
         nombre
         logo
         slogan
-        telefono
+        teléfono
         redes
     }
 
@@ -15,36 +15,30 @@
         precio
         tiempo
         estado
-        categoria
+        categoría
     }
 
     entity sol as "Solicitud"{
         fecha
         estado
-        direccion
+        dirección
         plano
-        visitaTecnica
+        visitaTécnica
     }
 
-    entity cot as "Cotización"{
-        items
-        total
-    }
-    
-    entity car as "Caracteristicas"{
+    entity car as "Características"{
         nombre
-        descripcion
-        agrupacion
+        descripción
+        agrupación
     }
 
     entity int as "Interesado"{
         nombre
-        telefono
+        teléfono
     }
 
     pro }|-right-|{ car : tiene
     int ||-down-|{ sol : realiza
     sol ||--|| pro : pertenece
-    sol ||-right-|| cot: genera
     emp ||-right-|{ sol: dirigida
 @enduml

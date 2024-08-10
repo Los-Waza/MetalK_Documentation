@@ -13,43 +13,42 @@
 
     database BaseDeDatos as bd{          
     }
-    package Solicitud as sol{}
+    package Solicitud as sol{
+        package Personalizacion as per{}
+        package Prospectos as pros{}
+    }
     package Mensajeria as wasa{}
-    package VisitaTecnica as vt{}
-    package Personalizacion as per{}
-    package Diseño as dis{}
     package Portafolio as por{}
-    package Cotizacion as cot{}
+    package Cotizacion as cot{
+        package VisitaTecnica as vt{}
+        package Diseño as dis{}
+    }
     package Almacenamiento as alm{}
-    package CuentaDeCobro as cdc{}
-    package Manofactura as man{}
-    package Contabilidad as con{}
+    package Cartera as car{
+        package Contratacion as con{}
+        package CompraMaterial as cm{}
+        package CuentaDeCobro as cdc{}
+    }
     package AccesoDatos as ad{}
     package Cronograma as cro{}
-    package Entrega as ent{}
-    package CompraMaterial as cm{}
-    package Contratacion as cont{}
+    package Produccion as pro{}
+    package Clientes as cli{}
+    
 
     sol -(0- wasa 
-    sol -(0-cro
-    sol -(0- per
-    dis -(0- per
-    dis -(0- vt
-    cro -0)- vt   
-    cot -(0- dis
-    por -(0- ent
-    man -(0- alm
-    ent -(0- wasa
-    man -0)- ent
-    con -(0- cdc
-    cm -0)- con
-    con -0)- ent
-    alm -(0- con
-    cm -(0- alm
+    sol -(0-cro 
+    sol -0)- cot 
+    por -(0- pro
+    pro -(0- alm
+    pro -(0- wasa
+    car -0)- pro
+    alm -(0- car
     ad -(0- bd  
-    cot -0)- con
-    man -0)- cro
-    con -0)- cont
-    cont -(0- man
+    pro -0)- cro
+    cot -0)- car
+    cli -0)- sol
+    cli -0)- car
+    ad -0)- car
+    ad -0)- cli
     
 @enduml

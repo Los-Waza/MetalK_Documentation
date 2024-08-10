@@ -1,43 +1,49 @@
 @startuml MetalK_DataModel
     skinparam linestyle orto
 
-    entity soli as "Solicitude"{
+    entity soli as "Solicitudes"{
         # soli_id: int
-        soli_applicantName:varchar
-        soli_applicantCellphone:varchar
-        ~ sost_id:int
-        soli_applicationDate: date
+        soli_date: date
         soli_plane: varchar
         soli_technicalVisit: boolean
         soli_address: varchar
+        ~ clin_id: int
     }
 
-    entity sost as "Solicitude_Status"{
-        # sost_id: int
-        sost_name: varchar
+    entity clin as "Clients"{
+        # clin_id: int
+        clin_name: varchar
+        clin_cellphone: varchar
+    }
+    
+    entity admi as "Admins"{
+        # admi_id: int
+        admi_name: varchar
+        admi_cellphone: varchar
+        admi_password: varchar
     }
 
-    entity prod as "Product"{
+    entity prod as "Products"{
         # prod_id: int
-        ~ prst_id: int
+        prod_price: double
+        prod_time: int
         ~ cate_id: int
     }
 
     
-    entity prst as "Product_Status"{
-        # prst_id: int
-        prst_name: varchar
+    entity prpi as "ProductPictures"{
+        #prpi_id: int
+        prpi_route: varchar
+        ~ prod_id: int
     }
 
-    
     entity prta as "Product_Tags"{
         # prta_id:int
         ~ prod_id: int
-        prod_image: varchar
         ~ tag_id: int
     }
 
-    entity cate as "Category" {   
+    entity cate as "Categories" {   
         # cate_id: int
         cate_name: varchar
         cate_description: text
@@ -52,10 +58,10 @@
         tagg_icon: varchar
     }
 
-    entity catg as "Category_TagGroup" {   
-        # catg_id: int
+    entity tbca as "TagsByCategory" {   
+        # tbca_id: int
         ~ cate_id: int
-        ~ tagg_id: int
+        ~ tag_id: int
     }
 
     entity tags as "Tags" {   
@@ -77,12 +83,12 @@
 
     prod ||-up-|| soli
     prod }--|| cate
+    prod ||-left-|{ prpi
     tags }|-down-|| tagg
-    cate ||-right-|{ catg
-    catg }|-right-|| tagg
-    prod }-left-|| prst
-    soli }-left-|| sost
+    cate ||-right-|{ tbca
+    tbca }|-right-|| tags
     prod ||-right-|{ prta
     tags ||-left-|{ prta
+    clin ||--|{ soli
     
 @enduml
