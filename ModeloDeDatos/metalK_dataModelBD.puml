@@ -51,7 +51,7 @@
         tagg_icon: file
     }
 
-    entity catg as "Category_TagGroup" {   
+    entity taca as "TagsByCategory" {   
         # catg_id: int
         ~ cate_id: int
         ~ tagg_id: int
@@ -75,13 +75,13 @@
 
 
     prod ||-up-|| soli
-    prod }-down-|| cate
+    prod }-left-|| cate
     tags }|--|| tagg
-    cate }|-left-|| catg
-    catg ||--|{ tagg
-    prod }-left-|| prst
+    cate }|-down-|| taca
+    taca ||-right-|{ tags
+    prod }-right-|| prst
     soli }-left-|| sost
-    prod ||-right-|{ prta
+    prod ||-down-|{ prta
     tags ||-up-|{ prta
     
 @enduml

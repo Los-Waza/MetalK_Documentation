@@ -41,8 +41,8 @@
     tag }|-left-{ pro
     pro ||-left-|| sol
     pro }-down-|| cat
-    tag }|-down-|| gt
-    cat }|-right-|{ gt
+    tag }|-right-|| gt
+    cat }|-right-|{ tag
     
     note top of tag: Esta es la representacion de \n "Caracteristicas" en el sistema
     note left of cat: La Categoria del Producto \ncondiciona los Tag que puede tener
