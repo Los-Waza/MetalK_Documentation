@@ -1,4 +1,4 @@
-@startuml
+@startuml MetalK_PackagesWInterfaces
     skinparam nodesep 4
     skinparam linestyle orto
 
@@ -10,116 +10,103 @@
 
     }
     </style>
+
     database BaseDeDatos as bd{          
     }
-    package Solicitud as sol{}
-    package Cliente as cli{}
-    package Whatsapp as wasa{}
-    package VisitaTecnica as vt{}
-    package Personalizacion as per{
-        package Cateogarias as cat{}
-        package GrupoTags as gt{}
-        package Tags as tag{}
+    package Solicitud as sol{
+        package Personalizacion as per{}
+        package Prospectos as pros{}
     }
-    package Plano as pla{}
-    package Productos as pro{}
+    
+    package Mensajeria as wasa{}
+
     package Portafolio as por{}
-    package Jefes as jef{}
-    package Cotizacion as cot{}
-    package Proveedor as prv{}
-    package Trabajadores as tra{}
-    package Almacen as alm{}
-    package CuentaDeCobra as cdc{}
-    package Obra as obr{}
-    package Contabilidad as con{}
+
+    package Cotizacion as cot{
+        package VisitaTecnica as vt{}
+        package Diseño as dis{}
+    }
+
+    package Almacenamiento as alm{}
+
+    package Cartera as car{
+        package Contratacion as con{}
+        package CompraMaterial as cm{}
+        package CuentaDeCobro as cdc{}
+    }
+
     package AccesoDatos as ad{}
+
     package Cronograma as cro{}
-    package Entrega as ent{}
+
+    package Produccion as pro{}
+
+    package Clientes as cli{}
+    
+    interface "Solicitud" as solI{
+        obtenerPreferencias()
+    }
+
+    interface "Whatsapp" as wasaI{
+        enviarMensajeACliente()
+        enviarMensajeAAdministrador()
+    }
+
+    interface "Cronograma" as croI{
+        programarVisitaTecnica()
+        inicioDeObra()
+        finalizacionDeObra()
+        programarEntrega()
+    }
+
+    interface "Cartera" as carI{
+        solicitarCompra()
+        solicitarManoDeObra()
+    }
+
+    interface "Almacenamiento" as almI{
+        gastarMaterial()
+    }
+
+    interface "Cotizacion" as cotI{
+        obtenerItems()
+    }
+
+    interface "Cliente" as cliI{
+        crearCliente()
+    }
+
+    interface "Producto" as proI{
+        productoTerminado()
+    }
 
     
-
-    'Plano provee
-    interface plai as "Plano"{
-        obtenerMateriales()
-        adjuntarPlano()
+    interface "AccesoDatos" as adI{
+        consultar()
     }
-    plai -- pla
-    plai --> sol
-    plai --> obr
-    cot <-- plai
-    plai --> vt
+    sol -- wasaI
+    cro -- wasaI
+    wasaI --> wasa
+    sol -- croI
+    pro -- croI
+    croI --> cro
+    cot -- solI
+    solI --> sol
+    pro -- carI
+    alm -- carI
+    carI --> car
+    pro -- almI
+    almI --> alm
+    por -- proI
+    proI --> pro
+    car -- cotI
+    cotI --> cot
+    sol -- cliI
+    cliI --> cli
+    cli -- adI
+    car -- adI
+    adI -- ad
 
-    'Solicitud provee
-    interface soli as "Solicitud"{
-        realizarSolicitud()
-
-    }
-    soli -- sol
-    soli --> cli
-    
-    'Cotización provee
-    interface coti as "Cotizacion"{
-        extraerItems()
-        crearCotizacion()
-    }
-    cot -- coti
-    coti --> cdc
-    coti --> con
-    coti --> jef
-
-    'Visita técnica provee
-    interface vti as "VisitaTecnica"{
-        solicitarVisita()
-    }
-
-    vt -- vti
-    vti --> sol
-
-    'Whatsapp provee
-    interface wasai as "Whatsapp"{
-        enviarMensaje(string)
-    }
-
-    wasa -- wasai
-    wasai -- sol
-    wasai -- obr
-    
-    'Jefes provee
-    interface jefi as "Jefe"{
-        administrarObra(string) 
-
-    }
-
-    jef -- jefi
-    
-
-    ':v
-    gt -(0- tag
-    cat -(0- gt
-    sol -(0- per
-    per -0)- pro
-    por -(0- pro
-    por -(0- cat
-    vt -(0- jef
-    obr -(0- tra
-    sol -(0- obr
-    jef -(0- obr
-    obr -(0- alm
-    cot -(0- prv
-    cot -(0- ad
-    jef -(0- ad 
-    alm -(0- prv
-    bd -0)- ad
-    ent -0)- obr
-    ent -(0- cro
-    obr -(0- cro
-    vt -(0- cro
-    cro -(0- jef
-    cro -(0- tra
-
-
-
-
-
+    ad -(0- bd  
     
 @enduml
