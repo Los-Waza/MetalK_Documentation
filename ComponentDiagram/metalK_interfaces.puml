@@ -84,20 +84,20 @@
     interface "AccesoDatos" as adI{
         consultar()
     }
-    sol -- wasaI
-    cro -- wasaI
-    wasaI --> wasa
-    sol -- croI
-    pro -- croI
-    croI --> cro
-    cot -- solI
-    solI --> sol
-    pro -- carI
-    alm -- carI
-    carI --> car
-    pro -- almI
-    almI --> alm
-    por -- proI
+    sol --> wasaI
+    cro --> wasaI
+    wasaI <-- wasa
+    sol --> croI
+    pro --> croI
+    croI <-- cro
+    cot --> solI
+    solI <-- sol
+    pro --> carI
+    alm --> carI
+    carI <-- car
+    pro --> almI
+    almI <-- alm
+    por --> proI
     proI --> pro
     car -- cotI
     cotI --> cot
@@ -105,8 +105,7 @@
     cliI --> cli
     cli -- adI
     car -- adI
-    adI -- ad
-
+    adI --> ad
     ad -(0- bd  
     
 @enduml
