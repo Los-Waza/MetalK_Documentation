@@ -1,7 +1,7 @@
 @startuml MetalK_DataModel
     skinparam linestyle orto
 
-    entity soli as "Solicitudes"{
+    entity soli as "solicitudes"{
         # soli_id: int
         soli_date: date
         soli_plane: varchar
@@ -10,40 +10,41 @@
         ~ clin_id: int
     }
 
-    entity clin as "Clients"{
+    entity clin as "clients"{
         # clin_id: int
         clin_name: varchar
         clin_cellphone: varchar
     }
     
-    entity admi as "Admins"{
+    entity admi as "admins"{
         # admi_id: int
         admi_name: varchar
         admi_cellphone: varchar
         admi_password: varchar
     }
 
-    entity prod as "Products"{
+    entity prod as "products"{
         # prod_id: int
         prod_price: double
         prod_time: int
         ~ cate_id: int
+        ~ soli_id: int
     }
 
     
-    entity prpi as "ProductPictures"{
+    entity prpi as "product_pictures"{
         #prpi_id: int
         prpi_route: varchar
         ~ prod_id: int
     }
 
-    entity prta as "Product_Tags"{
+    entity prta as "product_tags"{
         # prta_id:int
         ~ prod_id: int
         ~ tag_id: int
     }
 
-    entity cate as "Categories" {   
+    entity cate as "categories" {   
         # cate_id: int
         cate_name: varchar
         cate_description: text
@@ -51,27 +52,27 @@
     }
 
     
-    entity tagg as "TagGroups" {   
+    entity tagg as "tag_groups" {   
         # tagg_id: int
         tagg_title: varchar
         tagg_description: text
         tagg_icon: varchar
     }
 
-    entity tbca as "TagsByCategory" {   
+    entity tbca as "tags_by_category" {   
         # tbca_id: int
         ~ cate_id: int
         ~ tag_id: int
     }
 
-    entity tags as "Tags" {   
+    entity tags as "tags" {   
         # tag_id:int
         tag_name: varchar
         tag_description: text
         ~ tagg_id: int
     }
 
-    entity ente as "Enterprice"{
+    entity ente as "enterprice"{
         # ente_id: int
         ente_name: varchar
         ente_slogan: varchar
