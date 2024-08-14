@@ -1,0 +1,98 @@
+@startuml MetalK_Infraestructure
+    skinparam linetype ortho
+
+    database PDB[
+        <b> MySQL
+        <i>Producción
+    ]
+
+    database BDB[
+        <b> MySQL
+        <i>Respaldo
+    ]
+
+    cloud Railway as RW
+    
+    card DBS[
+        <b> Servidor Base de datos</b>
+        <i> Railway
+        --
+
+    ]
+    
+    card APIS[
+        Servidor API
+        <i><GitHub>
+    ]
+    card APIS{
+        rectangle MKAPI[
+            <b>MetalK Web API
+            <i>Fast API
+        ]
+    }
+    
+    card APIWS [
+        <b>Servidor web
+        Railway
+        ----
+    ]
+
+
+    card WAS[
+        Servidor WebApp
+        <i><GitHub>
+    ]
+    card WAS{
+        rectangle MKWC[
+            <b>MetalK Web Center
+            <i>Web App
+        ]
+    }
+
+    card WAWS [
+        <b>Servidor web
+        GitHub Pages
+        ----
+    ]
+
+    cloud Internet as I2
+    cloud "HTTPS Request" as I3
+    cloud Internet as I4
+    cloud Internet as I5
+
+    cloud FastAPI as FAPI
+
+    
+    card B [
+        <b>Navegador
+        ----
+    ]
+
+    control "Backend Build" as BB
+    control "Frontend Build" as BF
+    
+    MKWC -up-> WAS
+    DBS -left- PDB
+    DBS -left- BDB
+    BDB -up[hidden]- PDB
+    DBS -- RW
+    RW -- APIS 
+    MKAPI -up-> APIS
+    APIS -- I2
+    I2 -- APIWS
+    APIS -left- FAPI
+    APIWS -right- BB
+    APIWS -down- I3
+    I3 -- WAS
+    WAS -- I4
+    I4 -- WAWS
+    WAWS -right- BF
+    WAWS -- I5
+    I5 -- B
+
+
+
+
+
+
+@enduml
